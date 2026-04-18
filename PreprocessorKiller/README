@@ -1,0 +1,15 @@
+受B站视频【++C 语 言 大 佬】https://www.bilibili.com/video/BV1YfUxBUELd/?share_source=copy_web&vd_source=52aca65f6dcacd5de907c26c86253b80 启发，我决定编写一个能将所有C和C++程序转化为“真·C程序”的工具，于是就有了“PreprocessorKiller”。
+
+源代码“PreprocessorKiller.cpp”在gnu++26下编译，在较低版本C++中可能出现问题。
+
+可执行文件“PreprocessorKiller.exe”须在命令行运行，其接受一个或两个参数。第一个参数是被转化的程序，即输入文件；第二个可选的参数是转化出的程序，即输出文件。如不输入第二个参数，则默认输出在其同一目录下的“program.cpp”。
+
+目录中的“t.cpp”（被转化的程序，输入文件）和“program.cpp”（转化出的程序，输出文件）可作为一个例子。从“t.cpp”生成“program.cpp”的指令可以是“.\PreprocessorKiller.exe t.cpp”或“.\PreprocessorKiller.exe t.cpp program.cpp”。当然，在命令行输入它们时，需要保证处在“PreprocessorKiller.exe”所处的目录。顺便，“t.cpp”是洛谷上“P1002 [NOIP 2002 普及组] 过河卒”的代码。
+
+该工具使用了随机化技术，相同输入可能产生不同输出，此系正常现象。
+
+不幸的是，经过检验，C/C++的define预处理语句并非简单的文本替换，而会尝试解析很多符号。这导致若输入文件含有引号（或许其他符号也在此列，但作者已无力测试），则输出文件无法正常编译。比如，该工具无法正常转换自己的源文件。
+
+最重要的，作者不为此工具生成的任何文件负责。
+
+玩得开心！作者在这个小项目上耗费了一大段晚饭后的悠闲时光，今天我必须熬夜玩原神。
